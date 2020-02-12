@@ -23,6 +23,15 @@ if($hours > 12) {
     // Return the smaller angle
     return min($angle, 360 - $angle);
 }
+
+if (isset($_GET['submit']) && !empty($_GET['angle'])) {
+        $angle = trim($_GET['angle']);
+        $timeNow = trim($_GET['timeNow']);
+        echo "The time is ".clockHandAngle2($angle,$timeNow);
+      
+    }else{
+        echo "Please enter valid format for time";
+    }
 function clockHandAngle2($angle, $timeNow) {
     $timeNow = explode(':', $timeNow);
     $hours = $timeNow[0];
@@ -51,7 +60,7 @@ function clockHandAngle2($angle, $timeNow) {
     return date('g:i:s', $time);
 
 }
-echo clockHandAngle2(0, "12:00:00");
+//echo clockHandAngle2(0, "12:00:00");
 include('footer.php');
 
  ?>

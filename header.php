@@ -21,3 +21,11 @@
         </form>
         <h4 class="text-center">II.Calculate the time  by entering an angle and time below. </h4>
         <p>Please enter time as hour:minutes:seconds. ie: 12:30:00</p>
+         <form method="get" action='index.php'>
+            <div class='form-group'>
+              <label for='Angle'>Enter angle:</label>
+              <input  type="text" name="angle" class="form-control-md" >
+               <input  type="text" name="timeNow" class="form-control-md" >
+            </div>
+            <button type="submit" name="submit" value="submit" class="btn-success">Calculate time!</button>
+        </form>

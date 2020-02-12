@@ -9,7 +9,8 @@
 <body>
 	<div class='container'>
 	 	<h1 class="text-center">У дома часовник трака с лъскави стрелкички</h1>
-        <h3 class="text-center">Calculate the angle between minute and hour hands on a clock by entering a time below. </h2>
+	 	<img src="images/clock.png" class="rounded mx-auto d-block img-responsive" alt="image">
+        <h3 class="text-center">I.Calculate the angle between minute and hour hands on a clock by entering a time below. </h3>
         <p>Please enter time as hour:minutes:seconds. ie: 12:30:00</p>
         <form method="get" action='index.php'>
             <div class='form-group'>
@@ -18,3 +19,5 @@
             </div>
             <button type="submit" name="submit" value="submit" class="btn-success">Calculate angle!</button>
         </form>
+        <h4 class="text-center">II.Calculate the time  by entering an angle and time below. </h4>
+        <p>Please enter time as hour:minutes:seconds. ie: 12:30:00</p>

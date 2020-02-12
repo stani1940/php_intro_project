@@ -1,10 +1,14 @@
 <?php 
 
 include('header.php');
-if (isset($_GET['submit'])) {
- $time = trim($_GET['time']);
+    if (isset($_GET['submit']) && !empty($_GET['time'])) {
+        $time = trim($_GET['time']);
 
-
+        echo "The angle between hands is ".clockHandAngle($time)." degrees<br>";
+        //echo clockHandAngle("3:00:00");
+    }else{
+        echo "Please enter valid format for time";
+    }
 function clockHandAngle($time) {
     $time = explode(':', $time);
     $hours = $time[0];
@@ -18,11 +22,6 @@ if($hours > 12) {
     $angle = abs(30 * $hours + 0.5 * $minutes + ($seconds / 120) - (6 * $minutes + 0.1 * $seconds));
     // Return the smaller angle
     return min($angle, 360 - $angle);
-}
-echo "The angle between hands is ".clockHandAngle($time)." degrees<br>";
-//echo clockHandAngle("3:00:00");
-}else{
-    echo "Please enter valid format for time";
 }
 function clockHandAngle2($angle, $timeNow) {
     $timeNow = explode(':', $timeNow);

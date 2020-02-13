@@ -1,6 +1,8 @@
+<div>
+<footer class="panel_footer">
+	<p class="text-right">Developped by Stanislav Ginev</p>
+</footer>	
+</div>
 
-<footer class="footer fixed-bottom text-right">
-	<p>Developped by Stanislav Ginev</p>
-</footer>
 </body>
 </html>

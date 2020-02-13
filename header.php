@@ -12,20 +12,22 @@
 	 	<img src="images/clock.png" class="rounded mx-auto d-block img-responsive" alt="image">
         <h3 class="text-center">I.Calculate the angle between minute and hour hands on a clock by entering a time below. </h3>
         <p>Please enter time as hour:minutes:seconds. ie: 12:30:00</p>
-        <form method="get" action='index.php'>
+        <form method="get" action='index.php' id="form1">
             <div class='form-group'>
               <label for='time'>Let's count to:</label>
               <input  type="text" name="time" class="form-control-md" >
             </div>
-            <button type="submit" name="submit" value="submit" class="btn-success">Calculate angle!</button>
+            <button type="submit" name="submit" value="submit" class="btn-success" form="form1">Calculate angle!</button>
         </form>
         <h4 class="text-center">II.Calculate the time  by entering an angle and time below. </h4>
-        <p>Please enter time as hour:minutes:seconds. ie: 12:30:00</p>
-         <form method="get" action='index.php'>
+        
+         <form method="get" action='functions.php' id="form2">
             <div class='form-group'>
-              <label for='Angle'>Enter angle:</label>
-              <input  type="text" name="angle" class="form-control-md" >
-               <input  type="text" name="timeNow" class="form-control-md" >
+              	<label for='Angle'>Enter angle:</label>
+              	<input  type="text" name="angle" class="form-control-md" >
+              	 <label for='timeNow'>Enter timeNow:</label>
+               	<input  type="text" name="timeNow" class="form-control-md" >
             </div>
-            <button type="submit" name="submit" value="submit" class="btn-success">Calculate time!</button>
+           <button type="submit" name="submit_2" value="submit" class="btn-success" form="form2">Calculate the time</button>
         </form>
+    </div>

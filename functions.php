@@ -14,7 +14,6 @@ if($hours > 12) {
     return min($angle, 360 - $angle);
 }
  	$angle = trim($_GET['angle']);
-
     $timeNow = trim($_GET['timeNow']);
     //var_dump($angle);
     if ($angle>=0 && $angle<=180 && is_numeric($angle)) {

@@ -16,7 +16,8 @@ if($hours > 12) {
  	$angle = trim($_GET['angle']);
     $timeNow = trim($_GET['timeNow']);
     //var_dump($angle);
-    if ($angle>=0 && $angle<=180) {
+    if ($angle>=0 && $angle<=180 && is_numeric($angle)) {
+        //validate timeNow format
         if ( preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $timeNow)) {
             echo clockHandAngle2($angle,$timeNow);
         }else{

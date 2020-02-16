@@ -54,5 +54,3 @@ function clockHandAngle2($angle, $timeNow) {
     }
 //echo clockHandAngle2(0, "12:00:00");
 include('footer.php');
-
- ?>

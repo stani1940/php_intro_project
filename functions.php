@@ -1,4 +1,5 @@
-<?php 
+<?php
+include('header.php');
 function clockHandAngle($time) {
     $time = explode(':', $time);
     $hours = $time[0];
@@ -19,7 +20,7 @@ if($hours > 12) {
     if ($angle>=0 && $angle<=180 && is_numeric($angle)) {
         //validate timeNow format
         if ( preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $timeNow)) {
-            echo clockHandAngle2($angle,$timeNow);
+            echo "The time is ".clockHandAngle2($angle,$timeNow);
         }else{
             echo "Enter valid format ";
         }

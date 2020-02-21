@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 include('header.php');
     if (isset($_GET['submit']) && !empty($_GET['time'])) {
         $time = trim($_GET['time']);

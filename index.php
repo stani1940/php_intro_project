@@ -2,9 +2,14 @@
 include('header.php');
     if (isset($_GET['submit']) && !empty($_GET['time'])) {
         $time = trim($_GET['time']);
+        //validate time input
+        if (preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $time)) {
 
-        echo "The angle between hands is ".clockHandAngle($time)." degrees<br>";
-        //echo clockHandAngle("3:00:00");
+            echo "The angle between hands is " . clockHandAngle($time) . " degrees<br>";
+            //echo clockHandAngle("3:00:00");
+        }else{
+            echo "Please enter valid time format";
+        }
     }
 function clockHandAngle($time) {
     $time = explode(':', $time);

@@ -1,5 +1,15 @@
 <?php
 include('header.php');
+?>
+    <form method="get" action="" id="form1">
+        <div class='form-group'>
+            <label for='time'>Let's count to:
+                <input type="text" name="time" class="form-control-md">
+            </label>
+        </div>
+        <button type="submit" name="submit" value="submit" class="btn-success" form="form1">Calculate angle!</button>
+    </form>
+<?php
 if (isset($_GET['submit']) && !empty($_GET['time'])) {
     $time = strip_tags(htmlspecialchars(trim($_GET['time'])));
     //validate time input
@@ -25,37 +35,23 @@ function clockHandAngle($time)
     return min($angle, 360 - $angle);
 }
 
+?>
+    <h4>II.Calculate the time by entering an angle and time below. </h4>
 
-function clockHandAngle2($angle, $timeNow)
-{
-    $timeNow = explode(':', $timeNow);
-    $hours = $timeNow[0];
-    $minutes = $timeNow[1];
-    $seconds = $timeNow[2];
+    <form method="get" action='functions.php' id="form2">
+        <div class='form-group'>
+            <label for='Angle'>Enter angle:
+                <input type="text" name="angle" class="form-control-md">
+            </label>
+            <label for='timeNow'>Enter timeNow:
+                <input type="text" name="timeNow" class="form-control-md">
+            </label>
+        </div>
+        <button type="submit" name="submit_2" value="submit" class="btn-success" form="form2">Calculate the time
+        </button>
+    </form>
+<?php
 
-    $e = 0.09;
-    while (abs(clockHandAngle($hours . ':' . $minutes . ':' . $seconds) - $angle) > $e) {
-        $seconds += 1;
-        if ($seconds >= 60) {
-            $seconds = 0;
-            $minutes += 1;
-        }
-        if ($minutes >= 60) {
-            $minutes = 0;
-            $hours += 1;
-        }
-        // Check if hours are greater than 12, so the function can work with 24-hour clock
-        if ($hours > 12) {
-            $hours -= 12;
-        }
-    }
-    // Format the time
-    $time = strtotime($hours . ':' . $minutes . ':' . $seconds);
-
-    return date('g:i:s', $time);
-
-
-}
 
 //TESTS
 //For angle = 0 and timeNow = "12:00:00", the output should be clockHandAngle2(angle, timeNow) = "12:00:00".
@@ -71,3 +67,4 @@ function clockHandAngle2($angle, $timeNow)
 //For angle = 30 and timeNow = "12:54:17", the output should be clockHandAngle2(angle, timeNow) = "1:00:00".
 
 include('footer.php');
+?>

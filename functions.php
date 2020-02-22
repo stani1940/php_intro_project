@@ -59,7 +59,7 @@ function clockHandAngle2($angle, $timeNow)
     // Format the time
     $time = strtotime($hours . ':' . $minutes . ':' . $seconds);
 
-    return date('g:i:s', $time);
+    return date('g:i:s', htmlspecialchars($time));
 }
 		
 

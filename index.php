@@ -56,5 +56,18 @@ function clockHandAngle2($angle, $timeNow) {
         
       
     }
-//echo clockHandAngle2(0, "12:00:00");
+
+//TESTS
+//For angle = 0 and timeNow = "12:00:00", the output should be clockHandAngle2(angle, timeNow) = "12:00:00".
+
+    //The clock starts at an angle of 0 degrees, at 12:00:00.
+
+
+//For angle = 0 and timeNow = "12:00:01", the output should be clockHandAngle2(angle, timeNow) = "1:05:27".
+
+    //After 12:00:00, the hands won't reach a 0 degree angle until the next hour, at 1:05:27.
+
+
+//For angle = 30 and timeNow = "12:54:17", the output should be clockHandAngle2(angle, timeNow) = "1:00:00".
+
 include('footer.php');

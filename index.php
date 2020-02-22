@@ -1,23 +1,22 @@
 <?php
 include('header.php');
-    if (isset($_GET['submit']) && !empty($_GET['time'])) {
-        $time = trim($_GET['time']);
-        //validate time input
-        if (preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $time)) {
-
-            echo "The angle between hands is " . clockHandAngle($time) . " degrees<br>";
-            //echo clockHandAngle("3:00:00");
-        }else{
-            echo "Please enter valid time format";
-        }
+if (isset($_GET['submit']) && !empty($_GET['time'])) {
+    $time = strip_tags(htmlspecialchars(trim($_GET['time'])));
+    //validate time input
+    if (preg_match("/^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $time)) {
+        echo "The angle between hands is " . clockHandAngle($time) . " degrees<br>";
+    } else {
+        echo "Please enter valid time format";
     }
-function clockHandAngle($time) {
+}
+function clockHandAngle($time)
+{
     $time = explode(':', $time);
     $hours = $time[0];
     $minutes = $time[1];
     $seconds = $time[2];
-    
-if($hours > 12) {
+
+    if ($hours > 12) {
         $hours -= 12;
     }
     // Formula for finding angle
@@ -27,7 +26,8 @@ if($hours > 12) {
 }
 
 
-function clockHandAngle2($angle, $timeNow) {
+function clockHandAngle2($angle, $timeNow)
+{
     $timeNow = explode(':', $timeNow);
     $hours = $timeNow[0];
     $minutes = $timeNow[1];
@@ -36,16 +36,16 @@ function clockHandAngle2($angle, $timeNow) {
     $e = 0.09;
     while (abs(clockHandAngle($hours . ':' . $minutes . ':' . $seconds) - $angle) > $e) {
         $seconds += 1;
-        if($seconds >= 60) {
+        if ($seconds >= 60) {
             $seconds = 0;
             $minutes += 1;
         }
-        if($minutes >= 60) {
+        if ($minutes >= 60) {
             $minutes = 0;
             $hours += 1;
         }
         // Check if hours are greater than 12, so the function can work with 24-hour clock
-        if($hours > 12) {
+        if ($hours > 12) {
             $hours -= 12;
         }
     }
@@ -53,19 +53,19 @@ function clockHandAngle2($angle, $timeNow) {
     $time = strtotime($hours . ':' . $minutes . ':' . $seconds);
 
     return date('g:i:s', $time);
-        
-      
-    }
+
+
+}
 
 //TESTS
 //For angle = 0 and timeNow = "12:00:00", the output should be clockHandAngle2(angle, timeNow) = "12:00:00".
 
-    //The clock starts at an angle of 0 degrees, at 12:00:00.
+//The clock starts at an angle of 0 degrees, at 12:00:00.
 
 
 //For angle = 0 and timeNow = "12:00:01", the output should be clockHandAngle2(angle, timeNow) = "1:05:27".
 
-    //After 12:00:00, the hands won't reach a 0 degree angle until the next hour, at 1:05:27.
+//After 12:00:00, the hands won't reach a 0 degree angle until the next hour, at 1:05:27.
 
 
 //For angle = 30 and timeNow = "12:54:17", the output should be clockHandAngle2(angle, timeNow) = "1:00:00".
